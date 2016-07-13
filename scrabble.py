@@ -56,10 +56,11 @@ while score != 0:
 
 
 #is it valid (number of tiles in the bag)
-    for letter in scrabLetQty:
+    for letter in wordToCheck:
         if wordToCheck.count(letter)>scrabLetQty[letter]:
             print('You used letter %s too many times, there are only %s of those tiles\n' % (letter, scrabLetQty[letter]))
             status = 'void'
+            break
 
 #is it long enough (4 letter word or more)
     if  0 < len(wordToCheck) < 4 :
