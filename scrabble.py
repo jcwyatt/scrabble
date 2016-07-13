@@ -1,10 +1,15 @@
-#program to give scarbble scores for words
+#program to give scrabble scores for words
 
-def wordVal(word,vals): #finction to work out the scrabble word score
+
+#function to work out the scrabble word score
+def wordVal(word,vals): 
     wordVal=0
-    print(word)
+#   print(word)
     for letter in word:
-        wordVal = wordVal + vals[letter]
+        if letter in vals:
+            wordVal = wordVal + vals[letter]
+        else:
+            return ('error - must be letters')
     return(wordVal)    
 
 #define letter values
@@ -40,12 +45,15 @@ scrabLetQty={'E':12,'A':9,'I':9,'O':8,'N':6,'R':6,'T':6,'L':4,'S':4,'U':4,
              }
 score = 1
 while score != 0:
+
+    wordToCheck = str.upper(input("Type in a word, I'll give you it's scrabble score. Press enter to exit.\n"))
     
-    score = wordVal(str.upper(input("Type in a word, I'll give you it's scrabble score. Press enter to exit.\n")),scrabLetVals)
+    score = wordVal(wordToCheck,scrabLetVals)
 
-    print ('score = ', score)
+    print ('score = ', score, '\n')
 
-print('Thanks for using this app!')
+print('Thanks for using this app!\n')
+
 
 
     
